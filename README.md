@@ -7,20 +7,20 @@ conse Sequelize = require("sequelize");
 const Serialzer = require("sequelize-json-serializer");
 
 const User = sequelize.define("users",{
-username: { type: Sequelize.STRING(128) },
-email: { type: Sequelize.STRING(256) },
-phone: { type: Sequelize.STRING(128) },
-country: { type: Sequelize.STRING }
+    username: { type: Sequelize.STRING(128) },
+    email: { type: Sequelize.STRING(256) },
+    phone: { type: Sequelize.STRING(128) },
+    country: { type: Sequelize.STRING }
 });
 
 const UserSchema = {
 
-fields: [
-'username',
-'email',
-'phone',
-'country'
-]
+    fields: [
+        'username',
+        'email',
+        'phone',
+        'country'
+    ]
 };
 
 Serializer.defineSchema(  User , UserSchema );
