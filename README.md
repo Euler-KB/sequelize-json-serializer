@@ -26,7 +26,7 @@ const UserSchema = {
 Serializer.defineSchema(  User , UserSchema );
 ```
 
-Somemwhere in your application:
+Somewhere in your application:
 ```js
 router.get('/user/:id',function(req,res,next) {
 
