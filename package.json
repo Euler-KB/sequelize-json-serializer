@@ -1,11 +1,26 @@
 {
   "name": "sequelize-json-serializer",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Sequelize model to JSON converter",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://github.com/Euler-KB/sequelize-json-serializer",
+  "keywords": [
+    "sequelize",
+    "serializer",
+    "serialize",
+    "json",
+    "json-serializer",
+    "sequelize-serializer",
+    "jsonSerialize",
+    "sequelizeSerialize",
+    "schema",
+    "sequelize-schema",
+    "sequelizeSchema",
+    "jsonSchema"
+  ],
   "author": "Euler-KB",
   "license": "ISC",
   "dependencies": {
