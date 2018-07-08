@@ -25,3 +25,14 @@ const UserSchema = {
 
 Serializer.defineSchema(  User , UserSchema );
 ```
+
+Somemwhere in your application:
+```js
+router.get('/user/:id',function(req,res,next) {
+
+    User.findById(req.params.id).then(user => {
+        const payload = Serializer.serialize( user,User);
+        res.status(200).json( payload );
+    });
+});
+```
