@@ -1,6 +1,6 @@
 {
   "name": "sequelize-json-serializer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Sequelize model to JSON converter",
   "main": "index.js",
   "scripts": {
