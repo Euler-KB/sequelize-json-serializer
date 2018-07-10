@@ -12,8 +12,7 @@ String.prototype.contains = function(value) {
 
 const ValueFormatters = {
     'date': (value) => new Date(value),
-    'location': (value) => value === null ? null : Number(value),
-    'number': (value) => Number(value),
+    'number': (value) => value === null ? null : Number(value),
     'string': (value) =>  (value !== undefined || value !== null)  ? value.toString() : value
 };
 
@@ -116,7 +115,7 @@ const Serializers = Object.freeze({
                 targetModel = {};
 
                 let props = [];
-                if(!options['excludeFK']){
+                if(!options['excludePK']){
                     props.push(model.primaryKeyAttribute);
                 }
 
@@ -134,7 +133,7 @@ const Serializers = Object.freeze({
 
                 targetModel = { };
 
-                if(!options['excludeFK']){
+                if(!options['excludePK']){
                     targetModel[model.primaryKeyAttribute] = value[model.primaryKeyAttribute];
                 }
 
@@ -412,16 +411,17 @@ exports.resolveField = resolveField;
 
 exports.serialize = function (values, model, options) {
 
-    const serializer = options.serializer || Options.serializer;
+    let opts = options || {};
+    const serializer = opts.serializer || Options.serializer;
     if (serializer) {
 
-        if (Array.isArray(options)) {
-            options = {
-                include: options
+        if (Array.isArray(opts)) {
+            opts = {
+                include: opts
             };
         }
 
-        return serializer.serialize(values, model, options);
+        return serializer.serialize(values, model, opts);
     }
 
 };
