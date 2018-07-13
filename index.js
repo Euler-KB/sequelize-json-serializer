@@ -55,7 +55,7 @@ const Serializers = Object.freeze({
         const include = options.include || [];
         const emptyPolicy = options.emptyPolicy;
         const tags = options.tags;
-        const _allIncluded = typeof include === "object" && include.all === true;
+        const _allIncluded = Options.includeAll || (typeof include === "object" && include.all === true);
 
         const schema = getModelSchema(model , tags);
 
@@ -249,7 +249,8 @@ const NullPolicy = Object.freeze({
 
 let Options = {
     serializer: Serializers.Model,
-    emptyPolicy: NullPolicy.SET_NULL
+    emptyPolicy: NullPolicy.SET_NULL,
+    includeAll: false
 };
 
 exports.NullPolicy = NullPolicy;
