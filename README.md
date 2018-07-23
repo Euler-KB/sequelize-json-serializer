@@ -74,7 +74,6 @@ const UserSchema = {
 
 The default convention ensures the primary key attribute is included by default. To prevent this behavior,  set **excludePK** option in the schema to **true** .  
 ```js
-```js
 const UserSchema = {    
     fields: '*', // Include all fields
     options: {
