@@ -51,9 +51,50 @@ router.get('/user/:id',function(req,res,next) {
     });    
 });    
 ```  
-  
-From above, the default convention ensures the primary key attribute is included by default. To prevent this behavior,  set **excludePK** option in the schema to **true** .  
-  
+### Another Basic Example
+```js
+const UserSchema = {    
+    fields: '*' // Include all fields
+}; 
+
+...
+ const payload = Serializer.serialize( user,User); 
+ /*  
+      Response Body...  
+      {  
+         "id" : "2",
+         "username": "user360",  
+         "email": "test@live.com",  
+         "phone": "02XXXXXXXX",  
+         "country": "Ghana"  
+      }  
+*/ 
+```
+
+
+The default convention ensures the primary key attribute is included by default. To prevent this behavior,  set **excludePK** option in the schema to **true** .  
+```js
+```js
+const UserSchema = {    
+    fields: '*', // Include all fields
+    options: {
+	    excludePK: true // ignores all primary keys
+    }
+}; 
+
+...
+ const payload = Serializer.serialize( user,User); 
+ /*  
+      Response Body...  
+      {  
+         "username": "user360",  
+         "email": "test@live.com",  
+         "phone": "02XXXXXXXX",  
+         "country": "Ghana"  
+      }  
+*/ 
+```  
+
 > The serialize method works for both arrays and sequelize models  
   
 ```js  
@@ -70,7 +111,19 @@ const UserSchema = {
       excludePK: true // Exclude primary key 'id'  
    }  
      
-}  
+}
+
+...
+ /*  
+      Response Body...  
+      {  
+         "username": "user360",  
+         "email": "test@live.com",  
+         "phone": "02XXXXXXXX",  
+         "country": "Ghana"  
+      }  
+*/ 
+
 ```  
   
 ### Formatting fields  
