@@ -152,7 +152,7 @@ const Serializers = Object.freeze({
                     }
 
                     if (!options['excludeFK']) {
-                        props = props.concat(_.keys(model.attributes).filter(k => model.attributes[k].hasOwnProperty('references').map(x => x.field)));
+                        props = props.concat(_.keys(model.attributes).filter(k => model.attributes[k].hasOwnProperty('references')).map(x => x.field));
                     }
 
                     for (let i = 0, len = props.length; i < len; i++)
